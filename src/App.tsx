@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+
+import { FileUploader } from './FileUploader'
+import { SearchBox } from "./SearchBox";
+
+const Container = styled.div`
+`;
+
+const Title = styled.h1`
+  margin-bottom: 20px;
+`;
+
+const JsonViewer = styled.div`
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Title>Json Path Visualizer</Title>
+      <FileUploader />
+      <SearchBox />
+      <JsonViewer />
+    </Container>
   );
 }
 
