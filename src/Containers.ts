@@ -15,3 +15,8 @@ export const Jsons = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+export const ErrorMessage = styled.div`
+  color: red;
+  margin: 10px 0;
+`;

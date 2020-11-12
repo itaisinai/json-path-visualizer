@@ -3,14 +3,19 @@ import React, { useState } from 'react';
 
 import { FileUploader } from './FileUploader'
 import { SearchBox } from "./SearchBox";
-import { Container, Jsons, Title } from "./Containers";
+import { Container, ErrorMessage, Jsons, Title } from "./Containers";
 
 function App() {
+  const [error, setError] = useState<string>();
   const [json, setJson] = useState<string>();
   const [searchJson, setSearchJson] = useState<string>();
 
   const onSearch = (response: any): void => {
-    setSearchJson(JSON.stringify(response[0].value));
+    try {
+      setSearchJson(JSON.stringify(response[0].value));
+    } catch (e) {
+      setError('no results');
+    }
   }
 
   return (
@@ -18,6 +23,7 @@ function App() {
       <Title>Json Path Visualizer</Title>
       <FileUploader setJson={ setJson }/>
       { json && <SearchBox json={ JSON.parse(json) } onSearch={ onSearch }/> }
+      <ErrorMessage>{ error }</ErrorMessage>
       <Jsons>
         { json && <ReactJson src={ JSON.parse(json) }/> }
         { searchJson && <ReactJson src={ JSON.parse(searchJson) }/> }

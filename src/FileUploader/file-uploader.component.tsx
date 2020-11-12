@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
 import Dropzone from "react-dropzone";
 
-import { Container, DropzoneInput, ErrorMessage } from "./containers";
+import { Container, DropzoneInput } from "./containers";
+import { ErrorMessage } from "../Containers";
 
 interface IFileUploader {
   setJson: (json: string) => void;
 }
 
-export const FileUploader: FunctionComponent<IFileUploader> = ({ setJson }) => {
+export const FileUploader: FunctionComponent<IFileUploader> = ({setJson}) => {
   const [error, setError] = useState<string>();
 
   const onDrop = (acceptedFiles: any) => {

@@ -5,11 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
 `
 
-export const ErrorMessage = styled.div`
-  color: red;
-  margin-top: 10px;
-`;
-
 export const DropzoneInput = styled.div`
   width: 250px;
   height: 200px;
@@ -19,4 +14,5 @@ export const DropzoneInput = styled.div`
   border-radius: 5px;
   text-align: center;
   padding: 20px;
+  margin: auto;
 }`
