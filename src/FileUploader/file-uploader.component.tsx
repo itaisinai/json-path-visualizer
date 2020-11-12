@@ -1,12 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
 import Dropzone from "react-dropzone";
-import ReactJson from 'react-json-view';
 
 import { Container, DropzoneInput, ErrorMessage } from "./containers";
 
-export const FileUploader: FunctionComponent = () => {
+interface IFileUploader {
+  setJson: (json: string) => void;
+}
+
+export const FileUploader: FunctionComponent<IFileUploader> = ({ setJson }) => {
   const [error, setError] = useState<string>();
-  const [json, setJson] = useState<string>();
 
   const onDrop = (acceptedFiles: any) => {
     if (acceptedFiles[0]) {
@@ -33,7 +35,6 @@ export const FileUploader: FunctionComponent = () => {
         ) }
       </Dropzone>
       <ErrorMessage>{ error }</ErrorMessage>
-      { json && <ReactJson src={ JSON.parse(json) }/> }
     </Container>
   );
 }
